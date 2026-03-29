@@ -1,0 +1,362 @@
+{/* DesignTokens.mdx — Design System Tokens & SCSS Utilities
+
+   This page documents all CSS custom properties defined in src/app.scss (:root)
+   and all SCSS variables and mixins defined in src/lib/styles/.
+
+   IMPORTANT: Keep this page in sync with src/app.scss and src/lib/styles/.
+   Any time a token, variable, or mixin is added, removed, or changed, update
+   this page to reflect the current state of the design system.
+*/}
+
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Design Tokens" />
+
+# Design Tokens & SCSS Utilities
+
+This page documents every CSS custom property declared in `:root` inside
+`src/app.scss`, as well as the SCSS variables and mixins available in
+`src/lib/styles/`. Use these tokens in your components instead of hard-coded
+values to keep the design system consistent.
+
+## Colors
+
+Defined in `src/app.scss` — import with `var(--token-name)`.
+
+### Brand & UI Colors
+
+<table style={{width: '100%', borderCollapse: 'collapse', fontFamily: 'var(--font-sans)'}}>
+  <thead>
+    <tr style={{borderBottom: '2px solid var(--color-border)', textAlign: 'left'}}>
+      <th style={{padding: '0.5rem 1rem', width: '60px'}}>Swatch</th>
+      <th style={{padding: '0.5rem 1rem'}}>Token</th>
+      <th style={{padding: '0.5rem 1rem'}}>Value</th>
+      <th style={{padding: '0.5rem 1rem'}}>Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style={{borderBottom: '1px solid var(--color-border)'}}>
+      <td style={{padding: '0.75rem 1rem'}}><div style={{width: '40px', height: '40px', background: 'var(--color-accent)', borderRadius: 'var(--border-radius-sm)', border: '1px solid var(--color-border)'}}></div></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>--color-accent</code></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>#0033A1</code></td>
+      <td style={{padding: '0.75rem 1rem'}}>CUNY Blue (PMS 286) — primary brand color, links on hover, highlights</td>
+    </tr>
+    <tr style={{borderBottom: '1px solid var(--color-border)'}}>
+      <td style={{padding: '0.75rem 1rem'}}><div style={{width: '40px', height: '40px', background: 'var(--color-dark)', borderRadius: 'var(--border-radius-sm)', border: '1px solid var(--color-border)'}}></div></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>--color-dark</code></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>#1a1a1a</code></td>
+      <td style={{padding: '0.75rem 1rem'}}>Headings, primary text, and links on light backgrounds</td>
+    </tr>
+    <tr style={{borderBottom: '1px solid var(--color-border)'}}>
+      <td style={{padding: '0.75rem 1rem'}}><div style={{width: '40px', height: '40px', background: 'var(--color-text)', borderRadius: 'var(--border-radius-sm)', border: '1px solid var(--color-border)'}}></div></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>--color-text</code></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>#333333</code></td>
+      <td style={{padding: '0.75rem 1rem'}}>Default body text</td>
+    </tr>
+    <tr style={{borderBottom: '1px solid var(--color-border)'}}>
+      <td style={{padding: '0.75rem 1rem'}}><div style={{width: '40px', height: '40px', background: 'var(--color-white)', borderRadius: 'var(--border-radius-sm)', border: '1px solid var(--color-border)'}}></div></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>--color-white</code></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>#ffffff</code></td>
+      <td style={{padding: '0.75rem 1rem'}}>Page background, inverted text</td>
+    </tr>
+    <tr style={{borderBottom: '1px solid var(--color-border)'}}>
+      <td style={{padding: '0.75rem 1rem'}}><div style={{width: '40px', height: '40px', background: 'var(--color-light-gray)', borderRadius: 'var(--border-radius-sm)', border: '1px solid var(--color-border)'}}></div></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>--color-light-gray</code></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>#f5f5f5</code></td>
+      <td style={{padding: '0.75rem 1rem'}}>Subtle section backgrounds, card backgrounds</td>
+    </tr>
+    <tr style={{borderBottom: '1px solid var(--color-border)'}}>
+      <td style={{padding: '0.75rem 1rem'}}><div style={{width: '40px', height: '40px', background: 'var(--color-medium-gray)', borderRadius: 'var(--border-radius-sm)', border: '1px solid var(--color-border)'}}></div></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>--color-medium-gray</code></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>#666666</code></td>
+      <td style={{padding: '0.75rem 1rem'}}>Secondary text, captions, metadata</td>
+    </tr>
+    <tr style={{borderBottom: '1px solid var(--color-border)'}}>
+      <td style={{padding: '0.75rem 1rem'}}><div style={{width: '40px', height: '40px', background: 'var(--color-border)', borderRadius: 'var(--border-radius-sm)', border: '1px solid var(--color-border)'}}></div></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>--color-border</code></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>#e0e0e0</code></td>
+      <td style={{padding: '0.75rem 1rem'}}>Dividers, borders, rule lines</td>
+    </tr>
+    <tr style={{borderBottom: '1px solid var(--color-border)'}}>
+      <td style={{padding: '0.75rem 1rem'}}><div style={{width: '40px', height: '40px', background: 'var(--color-shadow)', borderRadius: 'var(--border-radius-sm)', border: '1px solid var(--color-border)'}}></div></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>--color-shadow</code></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>rgba(0,0,0,0.1)</code></td>
+      <td style={{padding: '0.75rem 1rem'}}>Box shadows</td>
+    </tr>
+  </tbody>
+</table>
+
+### CUNY Blue Gradient Colors
+
+<table style={{width: '100%', borderCollapse: 'collapse', fontFamily: 'var(--font-sans)'}}>
+  <thead>
+    <tr style={{borderBottom: '2px solid var(--color-border)', textAlign: 'left'}}>
+      <th style={{padding: '0.5rem 1rem', width: '60px'}}>Swatch</th>
+      <th style={{padding: '0.5rem 1rem'}}>Token</th>
+      <th style={{padding: '0.5rem 1rem'}}>Value</th>
+      <th style={{padding: '0.5rem 1rem'}}>Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style={{borderBottom: '1px solid var(--color-border)'}}>
+      <td style={{padding: '0.75rem 1rem'}}><div style={{width: '40px', height: '40px', background: 'var(--color-cuny-blue-dark)', borderRadius: 'var(--border-radius-sm)', border: '1px solid var(--color-border)'}}></div></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>--color-cuny-blue-dark</code></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>#002266</code></td>
+      <td style={{padding: '0.75rem 1rem'}}>Dark end of the CUNY Blue gradient</td>
+    </tr>
+    <tr style={{borderBottom: '1px solid var(--color-border)'}}>
+      <td style={{padding: '0.75rem 1rem'}}><div style={{width: '40px', height: '40px', background: 'var(--color-cuny-blue-light)', borderRadius: 'var(--border-radius-sm)', border: '1px solid var(--color-border)'}}></div></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>--color-cuny-blue-light</code></td>
+      <td style={{padding: '0.75rem 1rem'}}><code>#0066CC</code></td>
+      <td style={{padding: '0.75rem 1rem'}}>Light end of the CUNY Blue gradient</td>
+    </tr>
+  </tbody>
+</table>
+
+## Typography
+
+Defined in `src/app.scss` — import with `var(--token-name)`.
+
+### Font Families
+
+| Token | Value | Usage |
+|---|---|---|
+| `--font-serif` | `'PT Serif', Georgia, 'Times New Roman', Times, serif` | Headings (`h1`–`h6`) |
+| `--font-sans` | `'Droid Sans', system-ui, sans-serif, ...` _(abbreviated; see `src/app.scss` for full fallback list)_ | Body text, UI labels |
+
+### Root Font Sizes
+
+| Token | Value | Notes |
+|---|---|---|
+| `--font-size-root` | `16px` | Applied to `html` on desktop |
+| `--font-size-root-mobile` | `15px` | Applied to `html` on screens ≤ 768 px via `@include mobile` |
+
+### Font Sizes
+
+<div style={{fontFamily: 'var(--font-sans)', display: 'flex', flexDirection: 'column', gap: '0.75rem', margin: '1rem 0'}}>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '1.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem'}}>
+    <code style={{width: '200px', flexShrink: 0, fontSize: '0.875rem'}}>--font-size-xs</code>
+    <code style={{width: '80px', flexShrink: 0, fontSize: '0.875rem', color: 'var(--color-medium-gray)'}}>0.75rem</code>
+    <span style={{fontSize: 'var(--font-size-xs)'}}>12px — Fine print, footnotes</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '1.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem'}}>
+    <code style={{width: '200px', flexShrink: 0, fontSize: '0.875rem'}}>--font-size-sm</code>
+    <code style={{width: '80px', flexShrink: 0, fontSize: '0.875rem', color: 'var(--color-medium-gray)'}}>0.875rem</code>
+    <span style={{fontSize: 'var(--font-size-sm)'}}>14px — Captions, labels, metadata</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '1.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem'}}>
+    <code style={{width: '200px', flexShrink: 0, fontSize: '0.875rem'}}>--font-size-base</code>
+    <code style={{width: '80px', flexShrink: 0, fontSize: '0.875rem', color: 'var(--color-medium-gray)'}}>1rem</code>
+    <span style={{fontSize: 'var(--font-size-base)'}}>16px — Default body text</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '1.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem'}}>
+    <code style={{width: '200px', flexShrink: 0, fontSize: '0.875rem'}}>--font-size-lg</code>
+    <code style={{width: '80px', flexShrink: 0, fontSize: '0.875rem', color: 'var(--color-medium-gray)'}}>1.125rem</code>
+    <span style={{fontSize: 'var(--font-size-lg)'}}>18px — Lead paragraphs, intro text</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '1.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem'}}>
+    <code style={{width: '200px', flexShrink: 0, fontSize: '0.875rem'}}>--font-size-xl</code>
+    <code style={{width: '80px', flexShrink: 0, fontSize: '0.875rem', color: 'var(--color-medium-gray)'}}>1.25rem</code>
+    <span style={{fontSize: 'var(--font-size-xl)'}}>20px — Sub-headings</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '1.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem'}}>
+    <code style={{width: '200px', flexShrink: 0, fontSize: '0.875rem'}}>--font-size-2xl</code>
+    <code style={{width: '80px', flexShrink: 0, fontSize: '0.875rem', color: 'var(--color-medium-gray)'}}>1.375rem</code>
+    <span style={{fontSize: 'var(--font-size-2xl)'}}>22px — h3 on mobile</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '1.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem'}}>
+    <code style={{width: '200px', flexShrink: 0, fontSize: '0.875rem'}}>--font-size-3xl</code>
+    <code style={{width: '80px', flexShrink: 0, fontSize: '0.875rem', color: 'var(--color-medium-gray)'}}>1.5rem</code>
+    <span style={{fontSize: 'var(--font-size-3xl)'}}>24px — h3</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '1.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem'}}>
+    <code style={{width: '200px', flexShrink: 0, fontSize: '0.875rem'}}>--font-size-4xl</code>
+    <code style={{width: '80px', flexShrink: 0, fontSize: '0.875rem', color: 'var(--color-medium-gray)'}}>1.75rem</code>
+    <span style={{fontSize: 'var(--font-size-4xl)'}}>28px — h2, h1 on mobile</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '1.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem'}}>
+    <code style={{width: '200px', flexShrink: 0, fontSize: '0.875rem'}}>--font-size-5xl</code>
+    <code style={{width: '80px', flexShrink: 0, fontSize: '0.875rem', color: 'var(--color-medium-gray)'}}>2rem</code>
+    <span style={{fontSize: 'var(--font-size-5xl)'}}>32px — Large section headings</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '1.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem'}}>
+    <code style={{width: '200px', flexShrink: 0, fontSize: '0.875rem'}}>--font-size-6xl</code>
+    <code style={{width: '80px', flexShrink: 0, fontSize: '0.875rem', color: 'var(--color-medium-gray)'}}>2.75rem</code>
+    <span style={{fontSize: 'var(--font-size-6xl)'}}>44px — h1</span>
+  </div>
+  <div style={{display: 'flex', alignItems: 'baseline', gap: '1.5rem', paddingBottom: '0.5rem'}}>
+    <code style={{width: '200px', flexShrink: 0, fontSize: '0.875rem'}}>--font-size-display</code>
+    <code style={{width: '80px', flexShrink: 0, fontSize: '0.875rem', color: 'var(--color-medium-gray)'}}>3rem</code>
+    <span style={{fontSize: 'var(--font-size-display)'}}>48px — Hero display text</span>
+  </div>
+</div>
+
+### Font Weights
+
+| Token | Value | Usage |
+|---|---|---|
+| `--font-weight-light` | `300` | Decorative light text |
+| `--font-weight-normal` | `400` | Default body and heading weight |
+| `--font-weight-medium` | `500` | Slightly emphasized UI text |
+| `--font-weight-semibold` | `600` | Labels, nav items |
+| `--font-weight-bold` | `700` | Bold body text, bold headings |
+| `--font-weight-extrabold` | `800` | Display callouts, big numbers |
+
+### Line Heights
+
+| Token | Value | Usage |
+|---|---|---|
+| `--leading-tight` | `1.15` | Compact multi-line headings |
+| `--leading-snug` | `1.3` | Sub-headings, titles |
+| `--leading-caption` | `1.4` | Captions, image credits |
+| `--leading-normal` | `1.6` | Default body text |
+| `--leading-relaxed` | `1.75` | Long-form article text |
+| `--leading-loose` | `1.8` | Highly readable prose |
+| `--leading-heading` | `1.2` | `h1`–`h6` default |
+
+### Letter Spacing
+
+| Token | Value | Usage |
+|---|---|---|
+| `--letter-spacing-tight` | `-0.01em` | Display headlines |
+| `--letter-spacing-wide` | `0.02em` | All-caps labels |
+| `--letter-spacing-wider` | `0.05em` | Small-caps or overline text |
+
+## Spacing
+
+Defined in `src/app.scss` — import with `var(--token-name)`.
+
+<div style={{fontFamily: 'var(--font-sans)', display: 'flex', flexDirection: 'column', gap: '0.5rem', margin: '1rem 0'}}>
+  {[
+    { token: '--spacing-xxs', value: '0.25rem', px: '4px' },
+    { token: '--spacing-xs',  value: '0.5rem',  px: '8px' },
+    { token: '--spacing-sm',  value: '1rem',    px: '16px' },
+    { token: '--spacing-md',  value: '1.5rem',  px: '24px' },
+    { token: '--spacing-lg',  value: '2rem',    px: '32px' },
+    { token: '--spacing-xl',  value: '3rem',    px: '48px' },
+    { token: '--spacing-xxl', value: '4rem',    px: '64px' },
+  ].map(({ token, value, px }) => (
+    <div key={token} style={{display: 'flex', alignItems: 'center', gap: '1.5rem', borderBottom: '1px solid var(--color-border)', paddingBottom: '0.5rem'}}>
+      <code style={{width: '180px', flexShrink: 0, fontSize: '0.875rem'}}>{token}</code>
+      <code style={{width: '70px', flexShrink: 0, fontSize: '0.875rem', color: 'var(--color-medium-gray)'}}>{value}</code>
+      <code style={{width: '50px', flexShrink: 0, fontSize: '0.875rem', color: 'var(--color-medium-gray)'}}>{px}</code>
+      <div style={{height: '1rem', background: 'var(--color-accent)', width: value, minWidth: '4px'}}></div>
+    </div>
+  ))}
+</div>
+
+## Layout
+
+Defined in `src/app.scss` — import with `var(--token-name)`.
+
+| Token | Value | Usage |
+|---|---|---|
+| `--max-width` | `800px` | Default content column width (`.container`) |
+| `--max-width-wide` | `1200px` | Wide layout breakout (charts, full-bleed images) |
+| `--max-width-image-large` | `720px` | Large inline images |
+| `--max-width-image-medium` | `480px` | Medium inline images |
+| `--max-width-image-small` | `320px` | Small/thumbnail images |
+| `--max-width-footer-logo` | `400px` | Footer logo constraint |
+| `--site-chrome-height` | `200px` | Combined height of header + footer chrome |
+| `--dashboard-item-min-width` | `200px` | Min column width in dashboard grids |
+| `--dashboard-item-max-width` | `300px` | Max column width in dashboard grids |
+| `--logo-padding-mobile` | `0.15rem 0.35rem` | Logo badge padding on mobile |
+| `--logo-padding-desktop` | `0.2rem 0.4rem` | Logo badge padding on desktop |
+
+## Borders
+
+Defined in `src/app.scss` — import with `var(--token-name)`.
+
+| Token | Value | Usage |
+|---|---|---|
+| `--border-width-thin` | `1px` | Subtle dividers, table borders |
+| `--border-width-divider` | `2px` | Section separators |
+| `--border-width-accent` | `4px` | Pull quotes, accent bars |
+| `--border-radius-sm` | `8px` | Cards, buttons, swatches |
+
+## Transitions & Opacity
+
+Defined in `src/app.scss` — import with `var(--token-name)`.
+
+| Token | Value | Usage |
+|---|---|---|
+| `--transition-color` | `color 0.2s ease` | Link hover color change |
+| `--transition-opacity` | `opacity 0.2s ease` | Fade-in/out effects |
+| `--opacity-hover` | `0.8` | Standard hover dimming (images, cards) |
+| `--opacity-hover-faint` | `0.7` | More pronounced hover dimming |
+
+## SCSS Variables
+
+Defined in `src/lib/styles/_variables.scss` — available after `@use '$lib/styles' as *`.
+
+CSS custom properties cannot be used inside `@media` conditions, so breakpoints
+are stored as plain Sass variables.
+
+| Variable | Value | Usage |
+|---|---|---|
+| `$breakpoint-sm` | `768px` | Mobile/tablet threshold |
+| `$breakpoint-lg` | `1200px` | Desktop threshold |
+
+## SCSS Mixins
+
+Defined in `src/lib/styles/_mixins.scss` — available after `@use '$lib/styles' as *`.
+
+Use these mixins instead of raw `@media` queries so breakpoint values stay in
+one place and are easy to update.
+
+### `@include mobile { … }`
+
+Wraps styles in `@media (max-width: 768px)`. Use for overrides on small screens.
+
+```scss
+@use '$lib/styles' as *;
+
+.headline {
+  font-size: var(--font-size-6xl);
+
+  @include mobile {
+    font-size: var(--font-size-4xl); // smaller on phones
+  }
+}
+```
+
+### `@include tablet { … }`
+
+Wraps styles in `@media (min-width: 768px)`. Use for tablet-and-up overrides.
+
+```scss
+@use '$lib/styles' as *;
+
+.sidebar {
+  display: none;
+
+  @include tablet {
+    display: block; // show sidebar on tablet and up
+  }
+}
+```
+
+### `@include desktop { … }`
+
+Wraps styles in `@media (min-width: 1200px)`. Use for large-screen enhancements.
+
+```scss
+@use '$lib/styles' as *;
+
+.chart-grid {
+  grid-template-columns: 1fr;
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr); // 3-column layout on desktop
+  }
+}
+```
+
+### Importing the Style Utilities
+
+All variables and mixins are exported from the barrel file
+`src/lib/styles/_index.scss`. Import everything in a single line:
+
+```scss
+@use '$lib/styles' as *;
+```

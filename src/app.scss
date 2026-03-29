@@ -1,0 +1,215 @@
+/* Global styles for NYCity News Service style site */
+/* These apply to every page */
+
+/* ---------- SCSS Imports ---------- */
+@use '$lib/styles' as *;
+
+/* ---------- Google Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Droid+Sans:wght@400;700&display=swap');
+
+/* ===========================================
+   CSS Custom Properties
+   =========================================== */
+:root {
+  /* NYCity News Service Colors */
+  --color-accent: #0033A1;        /* CUNY Blue (PMS 286) */
+  --color-dark: #1a1a1a;
+  --color-text: #333333;
+  --color-white: #ffffff;
+  --color-light-gray: #f5f5f5;
+  --color-medium-gray: #666666;
+  --color-border: #e0e0e0;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+
+  /* CUNY Blue Gradient Colors */
+  --color-cuny-blue-dark: #002266;
+  --color-cuny-blue-light: #0066CC;
+
+  /* Typography */
+  --font-serif: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+  --font-sans: 'Droid Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  /* Root Font Sizes */
+  --font-size-root: 16px;
+  --font-size-root-mobile: 15px;
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.375rem;  /* 22px */
+  --font-size-3xl: 1.5rem;    /* 24px */
+  --font-size-4xl: 1.75rem;   /* 28px */
+  --font-size-5xl: 2rem;      /* 32px */
+  --font-size-6xl: 2.75rem;   /* 44px */
+  --font-size-display: 3rem;  /* 48px */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Line Heights */
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-caption: 1.4;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+  --leading-loose: 1.8;
+  --leading-heading: 1.2;
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.01em;
+  --letter-spacing-wide: 0.02em;
+  --letter-spacing-wider: 0.05em;
+
+  /* Spacing - use these for consistent margins and padding */
+  --spacing-xxs: 0.25rem; /* 4px */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 1rem; /* 16px */
+  --spacing-md: 1.5rem; /* 24px */
+  --spacing-lg: 2rem; /* 32px */
+  --spacing-xl: 3rem; /* 48px */
+  --spacing-xxl: 4rem; /* 64px */
+
+  /* Layout */
+  --max-width: 800px;
+  --max-width-wide: 1200px;
+  --max-width-image-large: 720px;
+  --max-width-image-medium: 480px;
+  --max-width-image-small: 320px;
+  --max-width-footer-logo: 400px;
+  --site-chrome-height: 200px;
+
+  /* Dashboard Layout */
+  --dashboard-item-min-width: 200px;
+  --dashboard-item-max-width: 300px;
+
+  /* Logo Padding */
+  --logo-padding-mobile: 0.15rem 0.35rem;
+  --logo-padding-desktop: 0.2rem 0.4rem;
+
+  /* Border Widths */
+  --border-width-thin: 1px;
+  --border-width-divider: 2px;
+  --border-width-accent: 4px;
+
+  /* Border Radius */
+  --border-radius-sm: 8px;
+
+  /* Transitions */
+  --transition-color: color 0.2s ease;
+  --transition-opacity: opacity 0.2s ease;
+
+  /* Opacity */
+  --opacity-hover: 0.8;
+  --opacity-hover-faint: 0.7;
+}
+
+/* ===========================================
+   CSS Reset
+   =========================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--font-size-root);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background-color: var(--color-white);
+}
+/* ===========================================
+   Typography
+   =========================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-dark);
+}
+
+h1 {
+  font-size: var(--font-size-6xl);
+  font-weight: var(--font-weight-normal);
+}
+
+h2 {
+  font-size: var(--font-size-4xl);
+}
+
+h3 {
+  font-size: var(--font-size-3xl);
+}
+
+p {
+  margin-bottom: var(--spacing-sm);
+}
+
+a {
+  color: var(--color-dark);
+  text-decoration: underline;
+  transition: var(--transition-color);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===========================================
+   Layout Utilities
+   =========================================== */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+/* ===========================================
+   Responsive Typography
+   =========================================== */
+@include mobile {
+  html {
+    font-size: var(--font-size-root-mobile);
+  }
+   h1 {
+     font-size: var(--font-size-4xl);
+   }
+   
+   h2 {
+     font-size: var(--font-size-3xl);
+   }
+   
+   h3 {
+     font-size: var(--font-size-xl);
+   }
+}
