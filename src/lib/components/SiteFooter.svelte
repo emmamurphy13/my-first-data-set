@@ -5,10 +5,14 @@ SiteFooter.svelte — NYPL-inspired footer
 USAGE EXAMPLE:
 <SiteFooter />
 -->
+<script>
+  import { asset, base } from '$app/paths';
+</script>
+
 <footer class="site-footer">
   <div class="footer-container">
-    <a href="/" class="footer-brand" aria-label="Library home">
-      <img class="footer-logo-mark" src="/static:nypl-lion.png" alt="" aria-hidden="true" />
+    <a href={`${base}/`} class="footer-brand" aria-label="Library home">
+      <img class="footer-logo-mark" src={asset('/static:nypl-lion.png')} alt="" aria-hidden="true" />
       <span>The New York Public Library</span>
     </a>
 

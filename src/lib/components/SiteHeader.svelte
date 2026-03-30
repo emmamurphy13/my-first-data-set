@@ -3,7 +3,7 @@
 SiteHeader.svelte — NYPL-inspired header
 -->
 <script>
-  import { asset } from '$app/paths';
+  import { asset, base } from '$app/paths';
 
   let {
     navLinks = [
@@ -19,7 +19,7 @@ SiteHeader.svelte — NYPL-inspired header
 <header class="site-header">
   <div class="topbar"></div>
   <div class="masthead">
-    <a href="/" class="logo" aria-label="New York Public Library style site">
+    <a href={`${base}/`} class="logo" aria-label="New York Public Library style site">
       <img class="logo-mark" src={asset('/static:nypl-lion.png')} alt="" aria-hidden="true" />
       <span class="logo-text">
         <span class="logo-line">New York</span>

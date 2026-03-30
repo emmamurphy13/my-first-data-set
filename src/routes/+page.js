@@ -1,7 +1,7 @@
 // Page settings
 // These values are passed to the layout to control what appears on the page.
 export async function load({ fetch }) {
-  const response = await fetch('/film-permits.csv');
+  const response = await fetch('film-permits.csv');
   const csvText = await response.text();
 
   const rows = csvText.trim().split(/\r?\n/);
