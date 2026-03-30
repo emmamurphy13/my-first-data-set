@@ -1,83 +1,83 @@
 <!--
 @component
-SiteFooter.svelte — Site Footer Component (NYCity News Service Style)
-
-A footer matching the NYCity News Service design.
-Features CUNY logo and key navigation links.
+SiteFooter.svelte — NYPL-inspired footer
 
 USAGE EXAMPLE:
 <SiteFooter />
 -->
-<script>
-  import { asset } from '$app/paths';
-</script>
-
 <footer class="site-footer">
   <div class="footer-container">
-    <!-- CUNY Logo -->
-    <div class="footer-logo">
-      <a href="https://www.journalism.cuny.edu/">
-        <img 
-          src={asset('/cuny-footer-logo.svg')} 
-          alt="Craig Newmark Graduate School of Journalism at CUNY"
-          class="cuny-logo"
-        />
-      </a>
-    </div>
-    
-    <!-- Footer Navigation -->
+    <a href="/" class="footer-brand" aria-label="Library home">
+      <img class="footer-logo-mark" src="/static:nypl-lion.png" alt="" aria-hidden="true" />
+      <span>The New York Public Library</span>
+    </a>
+
     <nav class="footer-nav" aria-label="Footer navigation">
-      <a href="https://www.nycitynewsservice.com/about/" class="footer-link">ABOUT US</a>
+      <a href="https://www.nypl.org/locations" class="footer-link">Hours & Locations</a>
       <span class="footer-divider">|</span>
-      <a href="https://www.nycitynewsservice.com/contact/" class="footer-link">CONTACT US</a>
+      <a href="https://www.nypl.org/library-card" class="footer-link">Get a Library Card</a>
+      <span class="footer-divider">|</span>
+      <a href="https://www.nypl.org/support" class="footer-link">Donate</a>
     </nav>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    background-color: var(--color-light-gray);
-    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: #111;
+    color: #f7f7f7;
+    padding: var(--spacing-lg) var(--spacing-md);
     margin-top: var(--spacing-xxl);
   }
 
   .footer-container {
-    max-width: var(--max-width);
+    max-width: var(--max-width-wide);
     margin: 0 auto;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
   }
 
-  .footer-logo {
-    margin-bottom: var(--spacing-md);
+  .footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
   }
 
-  .cuny-logo {
-    max-width: var(--max-width-footer-logo);
-    height: auto;
-    margin: 0 auto;
-    transition: var(--transition-opacity);
-  }
-
-  .footer-logo a:hover .cuny-logo {
-    opacity: var(--opacity-hover-faint);
+  .footer-logo-mark {
+    width: 22px;
+    height: 22px;
   }
 
   .footer-link {
-    color: var(--color-dark);
+    color: #f5f5f5;
     text-decoration: none;
     font-family: var(--font-sans);
     font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
-    letter-spacing: var(--letter-spacing-wider);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.02em;
     transition: var(--transition-color);
   }
 
   .footer-link:hover {
-    color: var(--color-accent);
+    color: #d62839;
   }
 
   .footer-divider {
-    color: var(--color-medium-gray);
+    color: #888;
     margin: 0 var(--spacing-sm);
+  }
+
+  @media (min-width: 900px) {
+    .footer-container {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 </style>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Lion logo</title>
+  <desc id="desc">A stylized lion head icon.</desc>
+  <circle cx="64" cy="64" r="52" fill="#d62839"/>
+  <circle cx="64" cy="66" r="30" fill="#ffffff"/>
+  <path d="M64 38 52 52h24z" fill="#111111"/>
+  <circle cx="52" cy="63" r="4" fill="#111111"/>
+  <circle cx="76" cy="63" r="4" fill="#111111"/>
+  <path d="M50 79c5 7 23 7 28 0" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round"/>
+  <path d="M35 53c-6-6-8-14-6-22 8 2 14 6 18 12" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round"/>
+  <path d="M93 53c6-6 8-14 6-22-8 2-14 6-18 12" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round"/>
+</svg>

@@ -1,182 +1,134 @@
 <!--
 @component
-SiteHeader.svelte — NYCity News Service Style Header
+SiteHeader.svelte — NYPL-inspired header
 -->
 <script>
+  import { asset } from '$app/paths';
+
   let {
     navLinks = [
-      { label: 'Arts & Culture', href: 'https://www.nycitynewsservice.com/nycns_topics/arts-culture/' },
-      { label: 'Business', href: 'https://www.nycitynewsservice.com/nycns_topics/business/' },
-      { label: 'Education', href: 'https://www.nycitynewsservice.com/nycns_topics/education/' },
-      { label: 'Environment', href: 'https://www.nycitynewsservice.com/nycns_topics/environment/' },
-      { label: 'Health', href: 'https://www.nycitynewsservice.com/nycns_topics/health/' },
-      { label: 'Housing', href: 'https://www.nycitynewsservice.com/nycns_topics/housing/' },
-      { label: 'Politics', href: 'https://www.nycitynewsservice.com/nycns_topics/politics/' },
+      { label: 'Books & Research', href: 'https://www.nypl.org/books-music-movies' },
+      { label: 'Events', href: 'https://www.nypl.org/events/calendar' },
+      { label: 'Locations', href: 'https://www.nypl.org/locations' },
+      { label: 'Get a Card', href: 'https://www.nypl.org/library-card' },
+      { label: 'Support', href: 'https://www.nypl.org/support' },
     ],
   } = $props();
 </script>
 
 <header class="site-header">
-  <!-- Compact masthead with logo left and nav right -->
-  <div class="masthead-wrapper">
-    <div class="masthead">
-    <a href="https://www.nycitynewsservice.com/" class="logo" aria-label="NYCity News Service">
-      <!-- Compact HTML/CSS Logo with thin white border -->
+  <div class="topbar"></div>
+  <div class="masthead">
+    <a href="/" class="logo" aria-label="New York Public Library style site">
+      <img class="logo-mark" src={asset('/static:nypl-lion.png')} alt="" aria-hidden="true" />
       <span class="logo-text">
-        <span class="logo-nycity">NYCITY</span><span class="logo-news-service">News Service</span>
+        <span class="logo-line">New York</span>
+        <span class="logo-line">Public</span>
+        <span class="logo-line logo-line-strong">Library</span>
       </span>
     </a>
 
-    <!-- Navigation inline with logo -->
     {#if navLinks.length > 0}
       <nav class="main-nav" aria-label="Main navigation">
         <ul class="nav-list">
-          {#each navLinks as link (link.href)}
-            <li>
-              <a href={link.href} class="nav-link">{link.label}</a>
-            </li>
+          {#each navLinks as link (link.label)}
+            <li><a href={link.href} class="nav-link">{link.label}</a></li>
           {/each}
         </ul>
       </nav>
     {/if}
-    </div>
   </div>
 </header>
 
 <style lang="scss">
-  @use '../styles' as *;
-
   .site-header {
-    border-bottom: 0px solid var(--color-accent);
-    box-shadow: 0 2px 4px var(--color-shadow);
+    background: #fff;
+    border-bottom: 1px solid #e4ddd3;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   }
 
-  /* Full-width blue background with animated dark-to-light gradient */
-  .masthead-wrapper {
-    background: linear-gradient(
-      90deg,
-      var(--color-cuny-blue-dark) 0%,
-      var(--color-accent) 50%,
-      var(--color-cuny-blue-light) 100%
-    );
-    background-size: 200% 100%;
-    animation: gradient-sweep 6s ease-in-out infinite;
+  .topbar {
+    height: 6px;
+    background: #d62839;
   }
 
-  @keyframes gradient-sweep {
-    0% {
-      background-position: 0% 0%;
-    }
-    50% {
-      background-position: 100% 0%;
-    }
-    100% {
-      background-position: 0% 0%;
-    }
-  }
-
-  /* Compact Masthead - Mobile: centered */
   .masthead {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    max-width: var(--max-width-wide);
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0.9rem 1rem;
   }
 
   .logo {
-    display: inline-block;
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 0.85rem;
     text-decoration: none;
+    color: #111;
   }
 
-  .logo:hover {
-    text-decoration: none;
+  .logo-mark {
+    width: 78px;
+    height: 78px;
+    flex: 0 0 auto;
   }
 
   .logo-text {
-    display: inline-flex;
-    align-items: stretch;
-    border: 1px solid var(--color-white);
+    display: grid;
+    gap: 0;
   }
 
-  .logo-nycity {
-    background-color: var(--color-white);
-    color: var(--color-accent);
+  .logo-line {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.04;
+  }
+
+  .logo-line-strong {
     font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-extrabold);
-    padding: var(--logo-padding-mobile);
-    letter-spacing: var(--letter-spacing-wide);
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
+    font-weight: 700;
+    margin-top: 0.12rem;
   }
 
-  .logo-news-service {
-    color: var(--color-white);
-    font-family: var(--font-sans);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-light);
-    padding: var(--logo-padding-mobile);
-    letter-spacing: var(--letter-spacing-tight);
-    display: flex;
-    align-items: center;
-  }
-
-  /* Navigation - hidden on mobile */
   .main-nav {
     display: none;
   }
 
   .nav-list {
     display: flex;
-    flex-wrap: nowrap;
     list-style: none;
-    gap: var(--spacing-md);
+    gap: 1rem;
     margin: 0;
     padding: 0;
   }
 
   .nav-link {
-    color: var(--color-white);
+    color: #1a1a1a;
     text-decoration: none;
     font-family: var(--font-sans);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
+    font-size: 0.82rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: var(--letter-spacing-wide);
-    white-space: nowrap;
-    transition: var(--transition-opacity);
+    letter-spacing: 0.04em;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.15rem;
+    transition: border-color 0.2s ease, color 0.2s ease;
   }
 
   .nav-link:hover {
-    color: var(--color-white);
-    opacity: var(--opacity-hover);
+    color: #d62839;
+    border-color: #d62839;
     text-decoration: none;
   }
 
-  /* Desktop styles - show nav, space-between layout, larger logo */
-  @include desktop {
-    .masthead {
-      justify-content: space-between;
-      padding: var(--font-size-xs) var(--spacing-md);
-    }
-
-    .logo-nycity {
-      font-size: var(--font-size-base);
-      padding: var(--logo-padding-desktop);
-    }
-
-    .logo-news-service {
-      font-size: var(--font-size-base);
-      padding: var(--logo-padding-desktop);
-    }
-
+  @media (min-width: 900px) {
     .main-nav {
       display: flex;
       align-items: center;
     }
   }
-
 </style>
